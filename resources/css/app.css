@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .btn-regular {
+        @apply bg-green-200 hover:bg-gray-200 p-4 rounded-2xl w-36
+    }
+    .card {
+        @apply bg-white rounded-2xl shadow-md p-4 w-full
+    }
+    .input-regular {
+        @apply bg-gray-100 border-2 w-full p-4 rounded-lg
+    }
+}
