@@ -28,35 +28,34 @@
         </thead>
         <tbody class="text-left">
             <tr class="bg-gray-100">
-                <form action="" method="">
+                <form action="{{ route('employee') }}" method="post">
+                @csrf
                     <th class="overflow-x-hidden py-2 px-2">
-                        <input type="text" placeholder="type name" class="input p-2 text-xs" />
+                        <input name="name" id="name" type="text" placeholder="type name" value="{{ old('name') }}" class="input p-2 text-xs @error('name') bg-red-100 @enderror" />
                     </th>
                     <th class="overflow-x-hidden py-2 px-2">
-                        <input type="text" placeholder="type job title" class="input p-2 text-xs" />
+                        <input name="job_title" id="job_title" type="text" placeholder="type job title" value="{{ old('job_title') }}" class="input p-2 text-xs @error('job_title') bg-red-100 @enderror" />
                     </th>
                     <th class="overflow-x-hidden py-2 px-4">
                         <button type="submit" class="w-10 p-2 bg-green-200 rounded-full text-xs">+</button>
                     </th>
                 </form>
             </tr>
-            <tr>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Leafre</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Bulbasaur</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">
-                    <button class="w-10 p-2 rounded-full bg-red-200 text-xs">x</button>
-                </td>
-            </tr>
-            <tr>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Renzo</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Pikachu</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm"><button class="w-10 p-2 rounded-full bg-red-200 text-xs">x</button></td>
-            </tr>
-            <tr>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Gunther</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm">Squirtle</td>
-                <td class="overflow-x-hidden py-2 px-4 text-sm"><button class="w-10 p-2 rounded-full bg-red-200 text-xs">x</button></td>
-            </tr>
+            @if($employees->count())
+                @foreach($employees as $employee)
+                    <tr>
+                        <td class="overflow-x-hidden py-2 px-4 text-sm">{{ $employee->name }}</td>
+                        <td class="overflow-x-hidden py-2 px-4 text-sm">{{ $employee->job_title }}</td>
+                        <td class="overflow-x-hidden py-2 px-4 text-sm">
+                            <button class="w-10 p-2 rounded-full bg-red-200 text-xs">x</button>
+                        </td>
+                    </tr>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="3" class="overflow-x-hidden py-2 px-4 text-sm">There are no employees listed.</td>
+                </tr>
+            @endif
         </tbody>
     </table>
 </body>

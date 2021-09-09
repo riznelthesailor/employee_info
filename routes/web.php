@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 // Welcome page
@@ -24,3 +25,6 @@ Route::post('/log-out', [LogoutController::class, 'store'])->name('logout');
 
 // Dashboard page
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Employee create function
+Route::post('/employee', [EmployeeController::class, 'store'])->name('employee');
