@@ -12,6 +12,15 @@ class EmployeeController extends Controller
         $this->middleware(['auth']);
     }
 
+    public function index()
+    {
+        $employees = Employee::get();
+
+        return view('layouts.dashboard',[
+            'employees' => $employees
+        ]);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -20,6 +29,13 @@ class EmployeeController extends Controller
         ]);
 
         Employee::create($request->only('name','job_title'));
+
+        return back();
+    }
+
+    public function destroy(Employee $employee)
+    {
+        $employee->delete();
 
         return back();
     }

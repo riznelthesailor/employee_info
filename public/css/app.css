@@ -563,6 +563,10 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
+form {
+  margin: 0px
+}
+
 .btn-regular {
   width: 9rem;
   border-radius: 1rem;
