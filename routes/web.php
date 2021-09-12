@@ -3,7 +3,6 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\SignupController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +23,11 @@ Route::post('/log-in', [LoginController::class, 'store']);
 Route::post('/log-out', [LogoutController::class, 'store'])->name('logout');
 
 // Dashboard page
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/employee', [EmployeeController::class, 'index'])->name('dashboard');
 
-// Employee create function
-Route::post('/employee', [EmployeeController::class, 'store'])->name('employee');
+// Employee Info
+// create employee function
+Route::post('/employee', [EmployeeController::class, 'store'])->name('employee.create');
+// delete employee function
+Route::delete('/employee/{employee}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+

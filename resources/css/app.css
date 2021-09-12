@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+    form {
+        @apply m-0
+    }
     .btn-regular {
         @apply bg-green-200 hover:bg-gray-200 p-4 rounded-2xl w-36
     }
