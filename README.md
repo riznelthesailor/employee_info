@@ -1,5 +1,16 @@
 # employee_info
-I'm working on this sample project to demonstrate my use of Laravel.
+I'm currently studying Laravel, and I'm working on this sample project to demonstrate my knowledge so far.
+
+### Set-up instructions
+1. Look through the env file. I'm using MySQL as my database and employee_info_repo_sample as my database name. Be sure to create a database in MySQL with said database name, or you may use your prefered database and db name. Just be sure to configure the env file to get the project up and running.
+2. In the CLI, `cd` to your project folder.
+3. Run `php artisan migrate` in the CLI to set-up the database structure.
+4. Run `php artisan serve` and open the project in localhost.
+5. Try it out. Sign up for an account, log in, and explore the dashboard.
+
+Thank you! :wink:
+
+#
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
